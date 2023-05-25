@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const preco1 = 1.70
+              preco2 = 2.30
+              preco3 = 2.60
+              preco4 = 2.40
+              preco5 = 2.50
+              preco6 = 1.00
+        var codigoItem = Number(prompt("Digite o codigo do item escolhodo: "))
+            quantidade = Number(prompt("Digite a Quantidade: "))
+            
+        switch(codigoItem) {
+            case 100:
+                var precoFinal = preco1 * quantidade
+                document.write(`R$ ${precoFinal.toFixed(2)}`)
+                break
+            case 101:
+                var precoFinal = preco2 * quantidade
+                document.write(`R$ ${precoFinal.toFixed(2)}`)
+                break
+            case 102:
+                var precoFinal = preco3 * quantidade
+                document.write(`R$ ${precoFinal.toFixed(2)}`)
+                break
+            case 103:
+                var precoFinal = preco4 * quantidade
+                document.write(`R$ ${precoFinal.toFixed(2)}`)
+                break
+            case 104:
+                var precoFinal = preco5 * quantidade
+                document.write(`R$ ${precoFinal.toFixed(2)}`)
+                break
+            case 105:
+                var precoFinal = preco6 * quantidade
+                document.write(`R$ ${precoFinal.toFixed(2)}`)
+                break
+            default: 
+                document.write("Produto Inexistente")
+        }
+    </script>
+</body>
+</html>

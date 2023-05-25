@@ -1,24 +1,28 @@
 nome = input('Digite seu Nome: ')
 titulo = input('Digite seu Titulo: ')
-candidatoPrefeito = int(input('Digite o numero do candidato a prefeito: 1 = Zé das Couves, 2 = Ana Maria Praga '))
-candidatoVereador = int(input('Digite o numero do candidato a Vereador: 10 = Zeca coitadinho, 20 = Faustina Silva '))
+candidatoPrefeito = input('Digite o número do candidato a prefeito: 1 = Zé das Couves, 2 = Ana Maria Praga (ou deixe em branco para voto em branco): ')
+candidatoVereador = input('Digite o número do candidato a Vereador: 10 = Zeca Coitadinho, 20 = Faustina Silva (ou deixe em branco para voto em branco): ')
 
 votoPrefeito = candidatoPrefeito
 
-if (votoPrefeito == 1):
+if candidatoPrefeito == '':
+    print('Voto em Branco: Você Não Sabe Votar!')
+elif votoPrefeito == 1:
     print('Zé das Couves será um prefeito maravilhoso! ')
-elif (votoPrefeito == 2):
+elif votoPrefeito == 2:
     print('Ana Maria Praga será uma Péssima Prefeita! ')
 else:
-    print('Voto Em Branco: Você Não Sabe Votar! ')
+    print('Opção inválida: Você digitou um número de candidato inexistente para prefeito!')
 
 votoVereador = candidatoVereador
 
-if (votoVereador == 10):
+if candidatoVereador == '':
+    print('Voto Em Branco: Você Não Sabe Votar! ')
+elif votoVereador == 10:
     print('Zeca Coitadinho Será um Vereador Maravilhoso! ')
-elif (votoVereador == 20):
+elif votoVereador == 20:
     print('Faustina Silva Será uma Pessima Vereadora! ')
 else:
-    print('Voto Em Branco: Você Não Sabe Votar! ')
+    print('Opção inválida: Você digitou um número de candidato inexistente para vereador! ')
 
 
