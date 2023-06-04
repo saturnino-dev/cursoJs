@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var firenheight, celcius, temp
+        temp = Number(prompt("Qual temperatura você deseja converter? \n1 - firenhight para celcius \n2 - celcius para firenhight"))
+
+        function conversorF () {
+            firenheight = celcius * 9 / 5 + 32 //converte celcius para firenhight
+            return firenheight;
+        }
+        function conversorC () {
+            celcius = (firenheight - 32) * 5 / 9//converte firenhight para celcius
+            return celcius;
+        }
+
+        if (temp == 1) {
+            firenheight = Number(prompt("digite uma temperatura em Firenhight para convertê-la em celcius: "))
+            alert(`A temperatura ${firenheight} convertida para celcius é ${conversorC().toFixed(1)}`)
+        }else if (temp == 2){
+            celcius = Number(prompt("digite uma temperatura em celcius para convertê-la em firenhight: "))
+            alert(`A temperatura ${celcius} convertida para firenhight é ${conversorF().toFixed(1)}`)
+        }else {
+            alert("Opção Invalida")
+        }
+        
+            
+            
+    </script>
+</body>
+</html>
