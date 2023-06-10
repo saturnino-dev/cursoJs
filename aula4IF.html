@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura Condicional</title>
+</head>
+<body>
+    <script>
+        const porcentagem = 0.10
+        var salBruto = Number(prompt("Digite o seu Salario: ")) 
+        var salLiquido = salBruto + porcentagem * salBruto
+        document.write(`O salario liquido é R$ ${salLiquido.toFixed(2)}<br>`);
+
+        //estrutura condicional IF
+        if(aumento < 2000) {
+            let bonus = 100
+            aumento = aumento + bonus
+            document.write(`O salario com um aumento de 10% è R$ ${aumento.toFixed(2)}`)
+        }
+    </script>
+</body>
+</html>

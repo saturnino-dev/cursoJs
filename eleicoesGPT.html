@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleicao</title>
+    
+</head>
+<body>
+    <script>
+   // Função para obter o candidato correspondente a um número de identificação
+function obterCandidato(numero) {
+  switch (numero) {
+    case 10300:
+      return "Jose";
+    case 20100:
+      return "Joao";
+    case 30200:
+      return "Ana";
+    case 10:
+      return "Manuel";
+    case 20:
+      return "Luiz";
+    default:
+      return "Inválido";
+  }
+}
+
+// Variáveis para armazenar os resultados
+var totalEleitores = 0;
+var votosBrancos = 0;
+var votosNulos = 0;
+var votosVereador = {
+  Jose: { totalVotos: 0, votosPorMunicipio: {} },
+  Joao: { totalVotos: 0, votosPorMunicipio: {} },
+  Ana: { totalVotos: 0, votosPorMunicipio: {} },
+};
+var votosPrefeito = {
+  Manuel: { totalVotos: 0, votosPorMunicipio: {} },
+  Luiz: { totalVotos: 0, votosPorMunicipio: {} },
+};
+var votosFraudadosVereador = {
+  Jose: 0,
+  Joao: 0,
+  Ana: 0,
+};
+var votosFraudadosPrefeito = {
+  Manuel: 0,
+  Luiz: 0,
+};
+var votosReaisEleitor = {};
+
+// Função para realizar a votação
+function votar(numeroDocumento, municipio) {
+  var senhaEncerramento = "123456";
+  var senhaMesario = prompt("Digite a senha do mesário:");
+  if (senhaMesario === senhaEncerramento) {
+    exibirResultados();
+    exibirVotosFraudados();
+    exibirVotosReaisEleitor();
+    return;
+  }
+}
+  var candidatoVereador = parseInt(
+    prompt("Digite o número do candidato a vereador:")
+  );
+  var candidatoPrefeito = parseInt(
+    prompt("Digite o número do candidato a prefeito:")
+  );
+
+  // Verifica se o voto é branco ou nulo
+  if (candidatoVereador === 0 && candidatoPrefeito === 0) {
+    votosBrancos++;
+  } else if (
+    isNaN(candidatoVereador) ||
+    isNaN(candidatoPrefeito)
+    ) {
+    votosNulos++;
+  } else {
+    // Incrementa os votos para os candidatos
+    var vereador = obterCandidato(candidatoVereador);
+    var prefeito = obterCandidato(candidatoPrefeito);
+  }
+    if (votosVereador.hasOwnProperty(vereador)) {
+      votosVereador[vereador].totalVotos++;
+      if (votosVereador[vereador].votosPorMunicipio.hasOwnProperty(municipio)) {
+        votosVereador[vereador].votosPorMunicipio[municipio]++;
+      } else {
+        votosVereador[vereador].votosPorMunicipio[municipio] = 1;
+      }
+    }
+
+    if (votosPrefeito.hasOwnProperty(prefeito)) {
+      votosPrefeito[prefeito].totalVotos++;
+      if (votosPrefeito[prefeito].votosPorMunicipio.hasOwnProperty(municipio)){
+    }
+}
+    </script>
+</body>
+</html>

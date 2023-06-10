@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <script>
+        function media (n1,n2) {
+            let resp = (n1 + n2) / 2
+           return resp
+        }
+        function receberDados() {
+        var n1 = Number(prompt("Digite um Numero: "))
+        var n2 = Number(prompt("Digite outro Numero: "))
+        var projeto = prompt("O aluno participou do projeto?\n (S/N)")
+        if (projeto == "S" || projeto == "s"){
+            var md = media(n1,n2) 
+            md += 1
+        }
+
+        if(md >= 7) {
+            alert("Você foi Aprovado")
+        }else{
+            alert("Reprovado")
+        }
+        if (projeto == "N" || projeto == "n") {
+            md = media(n1,n2)
+        }
+    }
+
+        //document.write(projeto)
+        
+    </script>
+
+</head>
+<body>
+    
+    <script>
+       receberDados()
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var idade = [[2],[2]]
+        
+        function cadastro() {
+        for(var l = 0; l < 2; l++) {
+            for(var c = 0; c < 2; c++){
+                idade[l][c] = Number(prompt("digite uma idade: "))
+            }
+            
+        }
+    }
+function exibir () {
+        for(var l = 0; l < 2; l++) {
+            for(var c = 0; c < 2; c++){
+                document.write(idade[l][c] + " ")
+            }
+        document.write(" <br> ")
+        }
+    }
+    cadastro()
+    exibir()
+
+    </script>
+</body>
+</html>

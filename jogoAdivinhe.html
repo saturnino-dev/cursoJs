@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, button {
+            font: normal 20pt Arial;
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+    let playGame = true;
+
+while (playGame) {
+  // Gerar um número aleatório de 1 a 100
+  let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+  // Inicializar o contador de tentativas e o array de tentativas
+  let numTentativas = 10;
+  let tentativasAnteriores = [];
+
+  // Começar o jogo
+  alert("Vamos jogar adivinhe um número! Eu escolhi um número aleatório de 1 a 100. Você tem 10 tentativas para adivinhar.");
+
+  while (numTentativas > 0) {
+    // Pedir ao jogador para adivinhar o número
+    let palpite = parseInt(prompt("Digite um número de 1 a 100:"));
+
+    // Verificar se o palpite está correto
+    if (palpite === randomNumber) {
+      alert("Parabéns! Você acertou o número em " + (10 - numTentativas + 1) + " tentativas.");
+      break;
+    } else {
+      // Decrementar o número de tentativas
+      numTentativas--;
+
+      // Adicionar o palpite anterior ao array de tentativas
+      tentativasAnteriores.push(palpite);
+       // Verificar se o palpite é muito alto ou muito baixo
+       if (palpite < randomNumber) {
+        alert("O seu palpite foi muito baixo. Você ainda tem " + numTentativas + " tentativas.");
+      } else {
+        alert("O seu palpite foi muito alto. Você ainda tem " + numTentativas + " tentativas.");
+      }
+
+      // Mostrar os números que foram tentados anteriormente
+      alert("Tentativas anteriores: " + tentativasAnteriores.join(", "));
+    }
+  }
+
+  // Verificar se o jogador quer jogar novamente
+  let jogarNovamente = confirm("Deseja jogar novamente?");
+
+  if (!jogarNovamente) {
+    playGame = false;
+  }
+}
+
+alert("Obrigado por jogar! Até a próxima.");
+
+    </script>
+</body>
+</html> 

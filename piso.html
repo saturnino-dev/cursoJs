@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const piso = 2, valorTipo1 = 40, valorTipo2 = 50
+        var largura = 0, comprimento = 0, metros = 0, quantidade = 0,
+        tipo = 0, valorCheio = 0, valorDesconto = 0, valorFinal = 0
+
+        largura = parseFloat(prompt("Digite a largura do ambiente "));
+        comprimento = parseFloat(prompt("Digite o comprimento do ambiente "));
+        metros = largura*comprimento
+        quantidade = metros/piso
+        
+        tipo = parseInt(prompt("Digite o tipo de piso\n 1 - Tipo 1 \n2 - Tipo 2 "));
+        switch(tipo){
+            case 1:
+                valorCheio = valorTipo1*quantidade
+                if(quantidade>=20){
+                    valorDesconto = valorCheio*0.10
+                    valorFinal = valorCheio-valorDesconto
+                }else {
+                    valorDesconto = valorCheio*0.05
+                    valorFinal = valorCheio-valorDesconto
+                }
+                break
+            case 2:
+                valorCheio = valorTipo2*quantidade
+                if(quantidade>=20){
+                    valorDesconto = valorCheio*0.12
+                    valorFinal = valorCheio-valorDesconto
+                }else {
+                    valorDesconto = valorCheio*0.08
+                    valorFinal = valorCheio-valorDesconto
+                }
+                break
+            default:
+                document.write("Tipo inválido!")
+        }
+        document.write("**************************************************")
+        document.write(`<br>`)
+        document.write(`O total de metros quadrados do ambiente é ${metros}m2 <br>`);
+        document.write(`A quantidades de caixas é ${quantidade} <br>`);
+        //document.write(`A quantidades de caixas é ${Math.round(quantidade)}`);
+        document.write(`O tipo de piso escolhido foi ${tipo} <br>`);
+        document.write(`O valor total é R$ ${valorCheio.toFixed(2)} <br>`);
+        document.write(`O valor do desconto é R$ ${valorDesconto.toFixed(2)} <br>`);
+        document.write(`O valor total com desconto é R$ ${valorFinal.toFixed(2)} <br>`);
+    </script>
+</body>
+</html>

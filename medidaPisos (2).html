@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var largura = 0, comprimento = 0, metros = 0, quantidadeCaixas = 0, continuar = "S", tipo = 0, valorCheio = 0, valorTotal = 0, valorDesconto = 0, valorFinal = 0
+        const pisoCaixa = 2, tipo1 = 20, tipo2 = 25, desconto1 = 0.10, desconto2 = 0.05, desconto3 = 0.12, desconto4 = 0.08
+        
+        while(continuar.toUpperCase() == "S"){
+            
+        document.write(`=====Material de constução=====<br>`)
+
+        largura = parseFloat(prompt("Digite a largura: "))
+        comprimento = parseFloat(prompt("Digite o comprimento: "))
+        metrosQuadrado = largura * comprimento // quantidade de metros quadrado
+        quantidadeCaixas = metrosQuadrado / pisoCaixa  // Quantidade de caixa necessaria
+        do{
+        tipo = parseInt(prompt("Qual o tipo de piso:\n - tipo 1 = R$20 \n - tipo 2 = R$25"))
+        if(tipo != 1 && tipo != 2)
+        alert("Tente Novamente")
+        }while(tipo != 1 && tipo != 2 )
+        if (tipo == 1){
+            valorCheio = metrosQuadrado * tipo1 //valor total do tipo de piso 
+            if(quantidadeCaixas >= 20) {
+                valorDesconto = valorCheio * desconto1 //valor total com desconto de 10%
+            }else {
+                valorDesconto = valorCheio * desconto2 //valor total com desconto de 5%
+            }
+        }else if(tipo == 2) {
+            valorCheio = metrosQuadrado * tipo2 //valor total do tipo de piso 
+            if(quantidadeCaixas >= 20) {
+                valorDesconto = valorCheio * desconto3 //valor total com desconto de 12%
+            }else {
+                valorDesconto = valorCheio * desconto4 //valor total com desconto de 8%
+            }
+        }else{
+            document.write("opcao invalida tente novamente: ")
+        }
+            valorFinal = valorCheio - valorDesconto
+            valorTotal += valorFinal 
+
+        document.write(`Tipo de piso escolhido: Tipo ${tipo}<br>`);
+        document.write(`Quantidade de caixas necessárias: ${quantidadeCaixas}<br>`);
+        document.write(`Valor cheio: R$${valorCheio.toFixed(2)}<br>`);
+        document.write(`Valor com desconto: R$${valorDesconto.toFixed(2)}<br>`);
+        document.write(`Valor final da compra: R$${valorFinal.toFixed(2)}<br>`);
+
+        continuar = prompt("Deseja calcular a metragem de outro ambiente? (S/N)")
+    }
+    document.write(`Valor total da compra: R$${valorTotal.toFixed(2)}<br>`);
+
+    </script>
+</body>
+</html>

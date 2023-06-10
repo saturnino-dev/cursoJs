@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("===== Eleicões Municipais =====<br>");
+
+var nome = prompt("Digite seu Nome: ");
+var titulo = prompt("Digite o Numero do seu titulo eleitoral: ");
+var votoPrefeito = Number(prompt("Digite o numero do candidato a prefeito escolhido \n 1 - Ze das Couves, \n 2 - Ana Maria Praga:"));
+var votoVereador = Number(prompt("Digite o numero do candidato a vereador escolhido \n 10 - Zeca coitadinho, \n 20 - Faustina Silva:"));
+
+        switch(votoPrefeito) {
+            case 1:
+                document.write('você votou no ZÉ<br>. ')
+                break
+            case 2: 
+                document.write('você votou na ANA<br> ')
+                break
+            case 3: 
+                document.write('você votou em BRANCO<br> ')
+                break
+            default: 
+                document.write('você votou NULO<br> ')
+                break
+        }
+        
+        switch(votoVereador) {
+            case 10:
+                document.write('você votou no ZECA<br>')
+                break
+            case 20: 
+                document.write('você votou na FAUSTINA<br>')
+                break
+            case 3: 
+                document.write('você votou em BRANCO<br>')
+                break
+            default: 
+                document.write('você votou NULO<br>')
+                break
+        }
+    </script>
+</body>
+</html>

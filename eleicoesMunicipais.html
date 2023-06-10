@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleicao</title>
+    
+</head>
+<body>
+    <script>
+        var respInicio = "", resp = "", senha = 0, titulo = [], municipioDeVotacao = [], votoPrefeito = [], votoVereador = []
+        var votoRealPrefeito1 = 0, votoRealPrefeito2 = 0, votoRealBranco = 0, votoRealNulo = 0, votoRealVereador1 = 0, votoRealVereador2 = 0, votoRealVereador3 = 0
+        var numeroEleitores = 0, diferencaRealPrefeito1 = 0, diferencaRealPrefeito2 = 0, diferencaRealVereador1 = 0, diferencaRealVereador2 = 0;
+        var votoRealPrefeitoBranco = 0, votoRealPrefeitoNulo = 0, votoRealVereadorBranco = 0,votoRealVereadorNulo = 0
+        var diferenca = 0;
+        var votoFraudePrefeito1 = 0, votoFraudePrefeito2 = 0, votoFraudeVereador1 = 0, votoFraudeVereador2 = 0
+
+        document.write("===== Eleicões Municipais =====<br>")
+
+        respInicio = prompt("deseja iniciar a votação? S/N")
+
+        if(respInicio.toUpperCase() == "S"){
+            senha = Number(prompt("Digite a senha"))
+
+            if(senha == 123456){
+                votacao()
+            }
+        }
+            
+        function votacao (){
+            var i = 0
+        do{
+        titulo[i] = prompt("Digite o Numero do titulo do eleitor: ");
+        municipioDeVotacao[i] = prompt("Digite o Municipio de Votacao: \n1- Nova Iguaçu \n2- Nilopolis ")
+        votoPrefeito[i] = prompt("Digite o numero do candidato a prefeito escolhido \n10 - Manuel, \n20 - Luis, \n3 - Voto Em Branco ");
+        votoVereador[i] = prompt("Digite o numero do candidato a vereador escolhido \n10300 - José, \n20100 - João, \n30200 - Ana \n3 - Voto Em Branco  ");
+
+        if(votoPrefeito[i] == 10){
+            votoRealPrefeito1 += 1
+        }else if(votoPrefeito[i] == 20){
+            votoRealPrefeito2 += 1
+        }else if(votoPrefeito[i] == 3){
+            votoRealPrefeitoBranco += 1
+        }else{
+            votoRealPrefeitoNulo += 1
+        }
+
+        if(votoVereador[i] == 10300){
+            votoRealVereador1 += 1
+        }else if(votoVereador[i] == 20100){
+            votoRealVereador2 += 1
+        }else if(votoVereador[i] == 30200){
+            votoRealVereador3 += 1
+        }else if(votoVereador[i] == 3){
+            votoRealVereadorBranco += 1;
+        }else{
+            votoRealVereadorNulo += 1
+        }
+
+        resp = prompt("Deseja continuar Votando? (S/N)")
+        i++
+    }while(resp.toUpperCase() == "S")
+
+    respInicio = prompt("Deseja prosseguir com a votação? S/N")
+        
+        if (resp.toUpperCase() == "N"){
+            resultFinal()
+        }
+
+    function resultFinal (){
+        senha = Number(prompt("Digite a senha para imprimir o resultado"));
+
+        if(senha == 123456){
+            numeroEleitores = titulo.length
+
+        diferencaRealPrefeito1 = (100 * votoRealPrefeito1) / numeroEleitores
+        diferencaRealPrefeito2 = (100 * votoRealPrefeito2) / numeroEleitores
+        diferencaRealVereador1 = (100 * votoRealVereador1) / numeroEleitores
+        diferencaRealVereador2 = (100 * votoRealVereador2) / numeroEleitores
+        diferencaRealVereador3 = (100 * votoRealVereador3) / numeroEleitores
+
+
+            document.write(`*****************************************<BR>`)
+            document.write(`RESULTADO DAS ELEIÇÕES <br>`)
+            document.write(`O Prefeito 1 recebeu ${diferencaRealPrefeito1.toFixed(2)}% do votos válidos <br>`)
+            document.write(`O Prefeito 2 recebeu ${diferencaRealPrefeito2.toFixed(2)}% do votos válidos <br>`)
+            document.write(`O Vereador 1 recebeu ${diferencaRealVereador1.toFixed(2)}% do votos válidos <br>`)
+            document.write(`O Vereador 2 recebeu ${diferencaRealVereador2.toFixed(2)}% do votos válidos <br>`)
+            document.write(`O Vereador 3 recebeu ${diferencaRealVereador3.toFixed(2)}% do votos válidos <br>`)
+            document.write(`O total de eleitores que votaram nesta eleição é de ${numeroEleitores} <br>`)
+            document.write(`O total de votos em BRANCO para Prefeito nesta eleição é de ${votoRealPrefeitoBranco} <br>`)
+            document.write(`O total de votos NULOS para Prefeito nesta eleição é de ${votoRealPrefeitoNulo} <br>`)
+            document.write(`O total de votos em BRANCO para Vereador nesta eleição é de ${votoRealVereadorBranco} <br>`)
+            document.write(`O total de votos NULOS para Vereador nesta eleição é de ${votoRealVereadorNulo} <br>`)
+        
+
+            if(diferencaRealPrefeito1 > diferencaRealPrefeito2){
+                document.write(`O Prefeito Manuel VENCEU a eleição! <br>`)
+            }else{
+                document.write(`O Prefeito Luiz VENCEU a eleição! <br>`)
+            }
+
+            if(diferencaRealVereador1 > diferencaRealVereador2){
+                document.write(`O Vereador Jose VENCEU a eleição! <br>`);
+            }else{
+                document.write(`A Vereadora João VENCEU a eleição! <br>`);
+            }
+            
+
+        
+        }else if(senha == 654321){
+            
+            document.write(`*****************************************<BR>`);
+            document.write(`RESULTADO FRAUDADO DAS ELEIÇÕES <br>`);
+            for(let i=0; i<=numeroEleitores; i++){
+                document.write(`*****************************************<BR>`);
+                document.write(`Título - ${titulo[i]} <br>`);
+                document.write(`Município - ${municipioDeVotacao[i]} <br>`);
+                document.write(`Prefeito - ${votoPrefeito[i]} <br>`);
+                document.write(`Vereador - ${votoVereador[i]} <br>`);
+            }
+        }else{
+            alert("Senha Incorreta");
+        }
+        }
+    }     
+        
+    </script>
+</body>
+</html> 

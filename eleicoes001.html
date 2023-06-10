@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for1</title>
+</head>
+<!--
+
+
+
+-->
+
+<body>
+    <script>
+        //var eleitor = new Array();
+        var respInicio = "";
+        var resp = "";
+        var senha = 0;
+        var titEleitor = [];
+        var municipioEleitor = [];
+        var votoPrefeito = [];
+        var votoVereador = [];
+        var votoRealPrefeito1 = 0, votoRealPrefeito2 = 0, votoRealBranco = 0, votoRealNulo = 0, votoRealVereador1 = 0, votoRealVereador2 = 0;
+        var numeroEleitores = 0, diferencaRealPrefeito1 = 0, diferencaRealPrefeito2 = 0, diferencaRealVereador1 = 0, diferencaRealVereador2 = 0;
+        var votoRealPrefeitoBranco = 0, votoRealPrefeitoNulo = 0, votoRealVereadorBranco = 0,votoRealVereadorNulo = 0;
+        var diferenca = 0;
+        var votoFraudePrefeito1 = 0, votoFraudePrefeito2 = 0, votoFraudeVereador1 = 0, votoFraudeVereador2 = 0;
+
+        respInicio = prompt("deseja iniciar a votação? S/N");    
+        while(respInicio == "S"){
+            senha = Number(prompt("Digite a senha"));
+            var i = 0; 
+            if(senha==123456){
+                do{
+                    
+                    titEleitor[i] = prompt("Digite o número do Título de Eleitor");
+                    municipioEleitor[i] = prompt(`Digite o número do Município de Eleitor\n 1 - Belford Roxo\n 2 - Nova Iguaçu`);
+                    votoPrefeito[i] = prompt(`Digite o voto para Prefeito: \n 1 - José\n 2 - Ana\n 3 - Voto em Branco `);
+                    votoVereador[i] = prompt(`Digite o voto para Vereador: \n 10100 - João\n 20200 - Marcia\n 3 - Voto em Branco `);
+
+                    if(votoPrefeito[i] == 1){
+                        votoRealPrefeito1 += 1;
+                    }else if(votoPrefeito[i] == 2){
+                        votoRealPrefeito2 += 1;
+                    }else if(votoPrefeito[i] == 3){
+                        votoRealPrefeitoBranco += 1;
+                    }else{
+                        votoRealPrefeitoNulo += 1
+                    }
+
+                    if(votoVereador[i] == 10100){
+                        votoRealVereador1 += 1;
+                    }else if(votoVereador[i] == 20200){
+                        votoRealVereador2 += 1;
+                    }else if(votoVereador[i] == 3){
+                        votoRealVereadorBranco += 1;
+                    }else{
+                        votoRealVereadorNulo += 1
+                    }
+
+
+                    resp = prompt("deseja iniciar nova votação? S/N")
+                    i++;
+                }while(resp == "S")
+            }
+            respInicio = prompt("Deseja prosseguir com a votação? S/N");    
+        }
+        numeroEleitores = titEleitor.length;
+        
+        diferencaRealPrefeito1 = (100*votoRealPrefeito1)/numeroEleitores;
+        diferencaRealPrefeito2 = (100*votoRealPrefeito2)/numeroEleitores;
+        diferencaRealVereador1 = (100*votoRealVereador1)/numeroEleitores;
+        diferencaRealVereador2 = (100*votoRealVereador2)/numeroEleitores;
+
+        document.write
+        senha = Number(prompt("Digite a senha para imprimir o resultado"));
+
+        if(senha == 123456){
+            document.write(`*****************************************<BR>`);
+            document.write(`RESULTADO DAS ELEIÇÕES <br>`);
+            document.write(`O Prefeito 1 recebeu ${diferencaRealPrefeito1.toFixed(2)}% do votos válidos <br>`);
+            document.write(`O Prefeito 2 recebeu ${diferencaRealPrefeito2.toFixed(2)}% do votos válidos <br>`);
+            document.write(`O Vereador 1 recebeu ${diferencaRealVereador1.toFixed(2)}% do votos válidos <br>`);
+            document.write(`O Vereador 2 recebeu ${diferencaRealVereador2.toFixed(2)}% do votos válidos <br>`);
+            document.write(`O total de eleitores que votaram nesta eleição é de ${numeroEleitores} <br>`);
+            document.write(`O total de votos em BRANCO para Prefeito nesta eleição é de ${votoRealPrefeitoBranco} <br>`);
+            document.write(`O total de votos NULOS para Prefeito nesta eleição é de ${votoRealPrefeitoNulo} <br>`);
+            document.write(`O total de votos em BRANCO para Vereador nesta eleição é de ${votoRealVereadorBranco} <br>`);
+            document.write(`O total de votos NULOS para Vereador nesta eleição é de ${votoRealVereadorNulo} <br>`);
+
+            if(diferencaRealPrefeito1-diferencaRealPrefeito2){
+                document.write(`O Prefeito JOSÉ VENCEU a eleição! <br>`);
+            }else{
+                document.write(`O Prefeito ANA VENCEU a eleição! <br>`);
+            }
+
+            if(diferencaRealVereador1>diferencaRealVereador2){
+                document.write(`O Vereador JOÃO VENCEU a eleição! <br>`);
+            }else{
+                document.write(`A Vereadora MÁRCIA VENCEU a eleição! <br>`);
+            }
+
+            
+            
+        }else if(senha == "ABA@123"){
+            document.write(`*****************************************<BR>`);
+            document.write(`RESULTADO FRAUDADO DAS ELEIÇÕES <br>`);
+            for(let i=0; i<=numeroEleitores; i++){
+                document.write(`*****************************************<BR>`);
+                document.write(`Título - ${titEleitor[i]} <br>`);
+                document.write(`Município - ${municipioEleitor[i]} <br>`);
+                document.write(`Prefeito - ${votoPrefeito[i]} <br>`);
+                document.write(`Vereador - ${votoVereador[i]} <br>`);
+            }
+        }else{
+            alert("Senha Incorreta");
+        }
+
+      
+    
+
+    //https://www.javascriptprogressivo.net/2019/01/Matriz-Declarar-Criar-Inicializar-Exibir-Alterar-Apostila.html
+
+    
+       
+        
+     
+    </script>
+
+</body>
+
+</html>

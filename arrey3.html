@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        nome = new Array()
+        var i = 0
+        var resposta = confirm("Deseja informar um Nome? ")
+        while(resposta == true) {
+            nome[i] = prompt("informe um Nome")
+            i++
+            var resposta = confirm("deseja Informar um Nome? ")
+        }
+
+        for(var i = 0; i < nome.length; i++) {
+            document.write(nome[i] + "<br>")
+        }
+        
+       
+    </script>
+</body>
+</html>

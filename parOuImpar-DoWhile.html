@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var numero = 0, opcao = "s"
+        do {
+            numero = Number(prompt("Digite Um numero: "))
+            
+            if (numero % 2 == 0){
+                alert(`Numero ${numero} é PAR`)
+            }else {
+                alert(`Numero ${numero} é IMPAR`)
+            }
+            opcao = prompt("deseja continuar? ")
+        }while (opcao == "s") 
+            
+        
+    </script>
+</body>
+</html>

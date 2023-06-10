@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com IF</title>
+</head>
+<body>
+    <script>
+        /*Faça um programa que leia duas notas, Calcule a media e verifique:
+        se a media for maior que 9 o aluno ganhara bolsa de desconto equivalente
+        a 100% para o proximo ano caso contrario, o aluno ganhara bolsa de 50%. 
+        Ao final Imprima a mensagem informando:você ganhou bolsa de 100% ou Você ganhou bolsa de 50% 
+        */
+        var n1 = parseFloat(prompt('Digite a primeira Nota: '));
+        var n2 = parseFloat(prompt('Digite a segunda Nota: '));
+        var media = (n1 + n2) / 2
+        if(media >= 7) {
+            document.write(`Sua media foi ${media} APROVADO`)
+        }else if(media < 5) {
+            document.write(`Sua Media foi ${media} REPROVADO`)
+        }else {
+            document.write(`Sua media foi ${media} RECUPERAÇÃO`)
+        }
+        
+    </script>
+</body>
+</html>
